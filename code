@@ -4,3 +4,25 @@ import seaborn as sns
 
 # Load the dataset
 data = pd.read_csv("apple_quality.csv")
+
+# Explore the data
+print(data.head())  # View the first few rows
+print(data.describe())  # Get summary statistics
+
+# Check for missing values
+print(data.isnull().sum())
+
+# Visualize distributions
+sns.histplot(data, x="Sweetness", hue="Quality")
+plt.show()
+
+# Check correlations
+correlations = data.corr()
+print(correlations)
+sns.heatmap(correlations, annot=True)
+plt.show()
+
+# Explore relationships with Quality
+sns.pairplot(data, hue="Quality")
+plt.show()
+
